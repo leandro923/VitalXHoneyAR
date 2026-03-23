@@ -1,0 +1,729 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalX Honey - Energía Natural Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #d4af37;
+            --primary-hover: #e6c547;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-light: #f2f2f2;
+            --text-muted: #a0a0a0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: clamp(1.875rem, 6vw, 3rem);
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 4vw, 1.875rem);
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 900;
+            text-decoration: none;
+        }
+
+        .cart-icon-wrapper {
+            position: relative;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--primary);
+            color: black;
+            font-size: 0.7rem;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+            .hero::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background-image: url('fondo1.jpg');
+                background-size: cover;
+                background-position: center;
+                opacity: 0.15;
+                z-index: 0;
+            }
+
+            .hero::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(to bottom, transparent, var(--bg-dark));
+                z-index: 1;
+            }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero-subtitle {
+            color: var(--primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #000;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+        }
+
+            .btn-primary:hover {
+                background-color: var(--primary-hover);
+                transform: translateY(-3px);
+                box-shadow: 0 15px 30px rgba(212, 175, 55, 0.4);
+            }
+
+        .btn-outline {
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+        }
+
+            .btn-outline:hover {
+                background-color: rgba(212, 175, 55, 0.1);
+                transform: translateY(-3px);
+            }
+
+        /* --- CARDS & GRID --- */
+        section {
+            padding: 8rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 4rem;
+            position: relative;
+        }
+
+            .section-title::after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 2px;
+                background: var(--primary);
+                margin: 1rem auto;
+            }
+
+        .benefits-grid, .steps-grid, .pricing-grid, .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card, .pricing-card, .testimonial-card, .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+
+            .benefit-card:hover, .pricing-card:hover {
+                border-color: var(--primary);
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            }
+
+            .benefit-card img {
+                width: 100%;
+                height: 250px;
+                object-fit: cover;
+                border-radius: 8px 8px 0 0;
+                filter: grayscale(30%);
+            }
+
+        .benefit-card-content, .pricing-card {
+            padding: 2.5rem;
+        }
+
+            /* --- PRICING SPECIFIC --- */
+            .pricing-card.featured {
+                border: 2px solid var(--primary);
+                background: linear-gradient(145deg, #1a1a1a, #050505);
+                transform: scale(1.05);
+            }
+
+        .pricing-badge {
+            background: var(--primary);
+            color: #000;
+            padding: 0.4rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            position: absolute;
+            top: 0;
+            right: 0;
+            border-radius: 0 6px 0 6px;
+        }
+
+        .price {
+            font-size: 3rem;
+            color: var(--primary);
+            font-weight: 800;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .price-subtitle {
+            text-decoration: line-through;
+            color: var(--text-muted);
+            opacity: 0.6;
+        }
+
+        /* --- CART PANEL (DRAWER) --- */
+        #cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: #111;
+            z-index: 2000;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.5);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+            #cart-drawer.open {
+                right: 0;
+            }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 1rem;
+        }
+
+        .close-cart {
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        #cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 2rem;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .cart-item-info h4 {
+            font-size: 0.9rem;
+            color: var(--primary);
+        }
+
+        .remove-item {
+            color: #ff4444;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            display: block;
+        }
+
+        .cart-total {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 1rem;
+        }
+
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1500;
+            display: none;
+        }
+
+            .cart-overlay.open {
+                display: block;
+            }
+
+        /* FAQ */
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            padding: 0 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            #cart-drawer {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">VITALX HONEY</a>
+            <div class="cart-icon-wrapper" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping" style="color: var(--primary); font-size: 1.4rem;"></i>
+                <span class="cart-count" id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <div id="cart-drawer">
+        <div class="cart-header">
+            <h3>Tu Pedido</h3>
+            <span class="close-cart" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cart-items">
+            <p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">El carrito está vacío</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-amount">$0</span>
+            </div>
+            <button class="btn btn-primary" style="width: 100%;" onclick="checkoutWhatsApp()">
+                Finalizar Pedido <i class="fa-brands fa-whatsapp"></i>
+            </button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">Estimulante Natural Premium</p>
+            <h1>POTENCIA SIN LÍMITES</h1>
+            <p>Recuperá tu energía, vitalidad y confianza con VitalX Honey. Diseñada para el rendimiento masculino extremo.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="#precios" class="btn btn-primary">Ver Ofertas →</a>
+                <a href="#beneficios" class="btn btn-outline">Saber Más</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="benefits">
+        <div class="container">
+            <h2 class="section-title">Beneficios Comprobados</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663435493244/AwN8ZK339yfaBzaUrMxpb7/ad_minimalist_1_63c6f7d8.png" alt="Vitalidad">
+                    <div class="benefit-card-content">
+                        <h3>⚡ Vigor Inmediato</h3>
+                        <p>Aumento real de flujo sanguíneo y energía muscular en menos de 60 minutos.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663435493244/AwN8ZK339yfaBzaUrMxpb7/ad_minimalist_2_ea7a5ad2.png" alt="Rendimiento">
+                    <div class="benefit-card-content">
+                        <h3>❤️ Confianza Total</h3>
+                        <p>Elimina el estrés de rendimiento y asegura una firmeza superior durante todo el encuentro.</p>
+                    </div>
+                </div>
+                <div class="benefit-card">
+                    <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663435493244/AwN8ZK339yfaBzaUrMxpb7/ad_creative_1_38c98ad8.png" alt="Efecto">
+                    <div class="benefit-card-content">
+                        <h3>⏰ Efecto Prolongado</h3>
+                        <p>Una sola toma mantiene tu cuerpo listo para la acción hasta por 48 horas continuas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="precios" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Elegí Tu Plan de Potencia</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>1 Sobre</h3>
+                    <div class="price">$15.000</div>
+                    <div class="price-subtitle">$20.000</div>
+                    <ul style="list-style: none; margin: 1.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ Prueba de vitalidad</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Envío Discreto</li>
+                        <li>✓ 100% Natural</li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%;" onclick="addToCart('1 Sobre VitalX Honey', 15000)">
+                        Añadir al Carrito
+                    </button>
+                </div>
+
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">MÁS VENDIDO</div>
+                    <h3>2 Sobres</h3>
+                    <div class="price">$20.000</div>
+                    <div class="price-subtitle">$40.000</div>
+                    <ul style="list-style: none; margin: 1.5rem 0; color: var(--text-light); font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ <b>Ahorro de $20.000</b></li>
+                        <li style="margin-bottom: 0.5rem;">✓ Envío Gratis</li>
+                        <li>✓ Energia Garantizada</li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="addToCart('2 Sobres VitalX Honey', 20000)">
+                        Añadir al Carrito
+                    </button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>3 Sobres</h3>
+                    <div class="price">$25.000</div>
+                    <div class="price-subtitle">$60.000</div>
+                    <ul style="list-style: none; margin: 1.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ Ahorro de $35.000</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Envío Gratis</li>
+                        <li>✓ Energia Garantizada</li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%;" onclick="addToCart('3 Sobres VitalX Honey', 25000)">
+                        Añadir al Carrito
+                    </button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>4 Sobres</h3>
+                    <div class="price">$30.000</div>
+                    <div class="price-subtitle">$80.000</div>
+                    <ul style="list-style: none; margin: 1.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ Ahorro de $50.000</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Envío Gratis</li>
+                        <li>✓ Energia Garantizada</li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%;" onclick="addToCart('4 Sobres VitalX Honey', 30000)">
+                        Añadir al Carrito
+                    </button>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>5 Sobres</h3>
+                    <div class="price">$37.000</div>
+                    <div class="price-subtitle">$99.500</div>
+                    <ul style="list-style: none; margin: 1.5rem 0; color: var(--text-muted); font-size: 0.9rem;">
+                        <li style="margin-bottom: 0.5rem;">✓ Ahorro de $62.500</li>
+                        <li style="margin-bottom: 0.5rem;">✓ Envío Gratis</li>
+                        <li>✓ Energia Garantizada</li>
+                    </ul>
+                    <button class="btn btn-outline" style="width: 100%;" onclick="addToCart('5 Sobres VitalX Honey', 37000)">
+                        Añadir al Carrito
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container" style="max-width: 800px;">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Es realmente discreto? <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Sí, el paquete no tiene marcas, logos ni mención del producto. Solo tú sabrás qué hay dentro.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Tiene contraindicaciones? <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">Al ser miel 100% natural con extractos herbales, no tiene efectos secundarios químicos. Sin embargo, si tienes problemas cardíacos graves, consulta a tu médico.</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4 style="color: var(--primary); margin-bottom: 1rem;">VITALX HONEY</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Líderes en suplementos naturales premium para el hombre moderno.</p>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 1rem;">Contacto</h4>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">WhatsApp: +54 9 11 4400-0032</p>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Envíos a todo el país.</p>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.1); padding-top: 2rem; color: var(--text-muted); font-size: 0.8rem;">
+                &copy; 2026 VitalX Honey. Potencia Natural. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- LOGICA DEL CARRITO ---
+        let cart = [];
+        const cartDrawer = document.getElementById('cart-drawer');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartCountHeader = document.getElementById('cart-count');
+        const cartTotalAmount = document.getElementById('cart-total-amount');
+
+        function toggleCart() {
+            cartDrawer.classList.toggle('open');
+            cartOverlay.classList.toggle('open');
+        }
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+            if (!cartDrawer.classList.contains('open')) {
+                toggleCart();
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            // Actualizar contador
+            cartCountHeader.innerText = cart.length;
+
+            // Limpiar contenedor
+            cartItemsContainer.innerHTML = '';
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: var(--text-muted); margin-top: 2rem;">El carrito está vacío</p>';
+                cartTotalAmount.innerText = '$0';
+                return;
+            }
+
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price;
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                        <div class="cart-item-info">
+                            <h4>${item.name}</h4>
+                            <span style="color: var(--primary); font-weight: bold;">$${item.price.toLocaleString()}</span>
+                            <span class="remove-item" onclick="removeFromCart(${index})">Eliminar</span>
+                        </div>
+                    `;
+                cartItemsContainer.appendChild(itemDiv);
+            });
+
+            cartTotalAmount.innerText = `$${total.toLocaleString()}`;
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) return alert("Tu carrito está vacío");
+
+            let total = 0;
+            let mensaje = "¡Hola! Quisiera realizar un pedido de VitalX Honey:%0A%0A";
+
+            cart.forEach(item => {
+                mensaje += `- ${item.name} ($${item.price.toLocaleString()})%0A`;
+                total += item.price;
+            });
+
+            mensaje += `%0A*Total: $${total.toLocaleString()}*%0A%0A¿Me podrían indicar los pasos para el pago y envío?`;
+
+            // Cambia el número por el tuyo real
+            window.open(`https://wa.me/5491144000032?text=${mensaje}`, '_blank');
+        }
+
+        // --- FAQ TOGGLE ---
+        function toggleFaq(element) {
+            element.parentElement.classList.toggle('active');
+            const toggle = element.querySelector('.faq-toggle');
+            toggle.innerText = element.parentElement.classList.contains('active') ? '-' : '+';
+        }
+
+        // --- ANIMACIONES ON SCROLL ---
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card, .pricing-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
